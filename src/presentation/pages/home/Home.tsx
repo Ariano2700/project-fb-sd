@@ -14,7 +14,7 @@ export const Home = () => {
   return (
     <main className="bg-black p-8 min-h-screen flex items-center justify-center">
       <div className=" bg-gray-800 rounded-lg shadow-lg overflow-hidden p-10 h-96 w-96 flex flex-col items-center ">
-        <h1 className="p-2 font-bold mb-12 text-white bg-black rounded-3xl">Hola chekes :V </h1>
+        <h1 className="p-2 font-bold mb-12 text-white bg-black rounded-3xl">BIENVENIDOS ¡HOLAAAA!</h1>
         {user?.photoURL ? (
           <img src={user.photoURL} alt="User Photo" className=" rounded-full w-24 h-24 animate-bounce" />
         ) : (
