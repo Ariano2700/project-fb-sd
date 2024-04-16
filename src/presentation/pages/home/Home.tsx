@@ -32,10 +32,10 @@ export const Home = () => {
           {user?.displayName || user?.email}
         </h1>
         <div className="flex flex-wrap justify-around gap-6">
-          {/* <TaskCard key={1} content="Esta es una tarea" />
+          <TaskCard key={1} content="Esta es una tarea" />
           <TaskCard key={2} content="Esta es una tarea" />
           <TaskCard key={3} content="Esta es una tarea" />
-          <TaskCard key={4} content="Esta es una tarea" /> */}
+          <TaskCard key={4} content="Esta es una tarea" />
         </div>
         <div className="flex flex-wrap gap-6 items-center justify-center">
           <Link to={"/addTask"}>
