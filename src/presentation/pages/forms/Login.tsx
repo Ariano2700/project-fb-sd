@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SolarLockOutline from "../../../assets/icons/solar/SolarLockOutline";
 import SolarUserOutline from "../../../assets/icons/solar/SolarUserOutline";
 import InputForm from "../../components/InputForm";
-import { GoogleBtn } from "../../components/googleBtn/GoogleBtn";
+import { GoogleBtn } from "../../components/buttons/googleBtn/GoogleBtn";
 import { useAuth } from "../../context/authContext";
 import OutSideWrapper from "../outside/form/OutSideWrapper";
 import { useState } from "react";
