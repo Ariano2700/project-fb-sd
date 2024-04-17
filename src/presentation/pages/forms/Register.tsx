@@ -10,7 +10,7 @@ import {
 import InputForm from "../../components/InputForm";
 import OutSideWrapper from "../outside/form/OutSideWrapper";
 import { Link, useNavigate } from "react-router-dom";
-import { ErrorAlert } from "../../components/ErrorAlert";
+import { ErrorAlert } from "../../components/alerts/ErrorAlert";
 import { useAuth } from "../../context/authContext";
 
 export const Register = () => {

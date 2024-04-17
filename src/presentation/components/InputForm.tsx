@@ -5,7 +5,7 @@ const InputForm = (props: InputLoginRegisterProps) => {
   return (
     <div className="w-full relative">
       <input
-        className="h-8 rounded input input-bordered border-white w-full bg-slate-100 placeholder:text-primary text-p600 p-2"
+        className="h-8 rounded input input-bordered border-white w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10"
         placeholder={placeholder}
         type={type}
         name={name}

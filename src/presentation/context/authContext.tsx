@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const unsuscribe = onAuthStateChanged(authFirebase, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      console.log(currentUser);
+      // console.log(currentUser);
     });
     return unsuscribe;
   }, []);

@@ -12,7 +12,7 @@ import {
   handleChangeType,
   handleSubmitType,
 } from "../../Types/FormTypes";
-import { ErrorAlert } from "../../components/ErrorAlert";
+import { ErrorAlert } from "../../components/alerts/ErrorAlert";
 
 export const Login = () => {
   const navigate = useNavigate();
