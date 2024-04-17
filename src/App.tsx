@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Home } from "./presentation/pages/home/Home";
 import { AuthProvider } from "./presentation/context/authContext";
 import { MainRoute } from "./presentation/protectedRoutes/MainRoute";
@@ -8,6 +8,7 @@ import {
   RedirectIfAuthenticatedRegister,
 } from "./presentation/protectedRoutes/ProtectedRoutes";
 import { AddNewTask } from "./presentation/pages/addNewTask/AddNewTask";
+import { NotFoundPage } from "./presentation/pages/notFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
           path="/Register"
           element={<RedirectIfAuthenticatedRegister />}
         ></Route>
+
+        <Route path="*" element={<Navigate to="/not-found"/>}></Route>
+        <Route path="/not-found" element={<NotFoundPage/>}></Route>
       </Routes>
     </AuthProvider>
   );

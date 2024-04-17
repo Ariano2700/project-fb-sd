@@ -96,7 +96,7 @@ export const Home = () => {
         </div>
         <div className="flex flex-wrap gap-6 items-center justify-center mt-2">
           <Link to={"/addTask"}>
-            <NewTaskBtn />
+            <NewTaskBtn content="Nueva tarea" />
           </Link>
           <LogOutBtn handleLogOut={handleLogOut} />
         </div>

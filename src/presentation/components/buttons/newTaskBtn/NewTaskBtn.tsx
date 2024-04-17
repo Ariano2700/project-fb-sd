@@ -1,10 +1,10 @@
 import "./NewTaskBtn.css";
-export const NewTaskBtn = () => {
+export const NewTaskBtn = ({content}:{content:string}) => {
   return (
     <>
       <div className="mt-3">
         <button className="cssbuttons-io-button">
-          Nueva tarea
+          {content}
           <div className="icon">
             <svg
               height="24"
