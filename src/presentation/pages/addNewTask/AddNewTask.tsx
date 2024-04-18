@@ -68,7 +68,7 @@ export const AddNewTask = () => {
                 type="text"
                 icon={<TitleIcon />}
                 onChange={handleChange}
-                styleProp="h-10 rounded input input-bordered border-white w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10 border border-black"
+                styleProp="h-10 rounded input input-bordered w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10 border border-black"
               />
               <InputForm
                 name="description"
@@ -76,7 +76,7 @@ export const AddNewTask = () => {
                 type="text"
                 icon={<DescriptionIcon />}
                 onChange={handleChange}
-                styleProp="h-10 rounded input input-bordered border-white w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10 border border-black"
+                styleProp="h-10 rounded input input-bordered w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10 border border-black"
               />
             </div>
             <div className="flex justify-center items-center gap-4 mt-9">
