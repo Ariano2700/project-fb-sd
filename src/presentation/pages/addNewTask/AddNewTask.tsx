@@ -37,8 +37,8 @@ export const AddNewTask = () => {
       const uid = (user?.uid || undefined) as string;
       await saveTask({ ...task, uid });
       setTask({ id: null, title: "", description: "" });
-      SavedAlert()
-      navigate("/home")
+      SavedAlert();
+      navigate("/home");
     } catch (error) {
       console.error("Error al guardar la tarea: ", error);
     }
@@ -46,14 +46,19 @@ export const AddNewTask = () => {
   if (loading) return <Loader />;
   return (
     <>
-        <div className="bg-gray-500 p-5 rounded-md">
-          <form className="flex flex-col items-center gap-6 p-3 w-full" onSubmit={handleSubmit}>
+      <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 rounded-md">
+        <div className="relative">
+          <div className="absolute -top-2 -left-2 -right-2 -bottom-2 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-lg animate-pulse"></div>
+          <form
+            className="flex flex-col items-center gap-6 bg-white p-16 rounded-lg shadow-2xl w-full relative z-10 transform transition duration-500 ease-in-out text-center"
+            onSubmit={handleSubmit}
+          >
             <Link to={"/home"}>
-              <div className="flex items-center gap-1 cursor-pointer text-white text-xl w-full">
+              <div className=" flex items-center gap-1 cursor-pointer text-black text-xl w-full">
                 <ReturnArrow /> <span>Atras</span>
               </div>
             </Link>
-            <h1 className="text-white font-bold text-3xl">
+            <h1 className="text-black font-bold text-3xl">
               Agregar nueva tarea
             </h1>
             <div className="flex flex-col gap-8 mt-4">
@@ -63,7 +68,7 @@ export const AddNewTask = () => {
                 type="text"
                 icon={<TitleIcon />}
                 onChange={handleChange}
-                styleProp="h-10 rounded input input-bordered border-white w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10"
+                styleProp="h-10 rounded input input-bordered border-white w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10 border border-black"
               />
               <InputForm
                 name="description"
@@ -71,14 +76,15 @@ export const AddNewTask = () => {
                 type="text"
                 icon={<DescriptionIcon />}
                 onChange={handleChange}
-                styleProp="h-10 rounded input input-bordered border-white w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10"
+                styleProp="h-10 rounded input input-bordered border-white w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10 border border-black"
               />
             </div>
-            <div className="flex justify-center items-center gap-4">
+            <div className="flex justify-center items-center gap-4 mt-9">
               <AddTaskBtn />
             </div>
           </form>
         </div>
+      </div>
     </>
   );
 };
