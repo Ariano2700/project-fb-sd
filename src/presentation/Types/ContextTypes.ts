@@ -11,6 +11,7 @@ export type SingUpAndLoginFunction = {
   loading: boolean;
   logOut: LogOutFunction;
   loginWhitGoogle: () => void
+  loginWhitFacebook: () => void
 };
 
 export type AuthProviderProps = {

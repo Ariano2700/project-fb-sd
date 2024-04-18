@@ -9,37 +9,40 @@ import {
 } from "./presentation/protectedRoutes/ProtectedRoutes";
 import { AddNewTask } from "./presentation/pages/addNewTask/AddNewTask";
 import { NotFoundPage } from "./presentation/pages/notFoundPage/NotFoundPage";
+import { BackgroundPage } from "./presentation/pages/outside/bgPage/BackgroundPage";
 
 function App() {
   return (
     <AuthProvider>
-      <Routes>
-        <Route path="/" element={<MainRoute />}></Route>
-        <Route
-          path="/home"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        ></Route>
-        <Route
-          path="/addTask"
-          element={
-            <ProtectedRoute>
-              <AddNewTask />
-            </ProtectedRoute>
-          }
-        ></Route>
-        <Route path="/login" element={<RedirectIfAuthenticated />}></Route>
-        <Route
-          path="/Register"
-          element={<RedirectIfAuthenticatedRegister />}
-        ></Route>
+      <BackgroundPage>
+        <Routes>
+          <Route path="/" element={<MainRoute />}></Route>
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/addTask"
+            element={
+              <ProtectedRoute>
+                <AddNewTask />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route path="/login" element={<RedirectIfAuthenticated />}></Route>
+          <Route
+            path="/Register"
+            element={<RedirectIfAuthenticatedRegister />}
+          ></Route>
 
-        <Route path="*" element={<Navigate to="/not-found"/>}></Route>
-        <Route path="/not-found" element={<NotFoundPage/>}></Route>
-      </Routes>
+          <Route path="*" element={<Navigate to="/not-found" />}></Route>
+          <Route path="/not-found" element={<NotFoundPage />}></Route>
+        </Routes>
+      </BackgroundPage>
     </AuthProvider>
   );
 }

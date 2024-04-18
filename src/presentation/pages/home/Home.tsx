@@ -56,51 +56,49 @@ export const Home = () => {
   if (loading) return <Loader />;
 
   return (
-    <main className="bg-black p-8 min-h-screen flex items-center justify-center">
-      <div className=" bg-gray-800 rounded-lg shadow-lg overflow-hidden p-10 h-full w-full flex flex-col items-center ">
-        <h1 className="p-2 font-bold mb-12 text-white bg-black rounded-3xl">
-          BIENVENIDO ¡HOLA!
-        </h1>
-        {user?.photoURL ? (
-          <img
-            src={user.photoURL}
-            alt="User Photo"
-            className=" rounded-full w-24 h-24 animate-bounce"
-          />
+    <div className=" bg-gray-800 rounded-lg shadow-lg overflow-hidden p-10 h-full w-full flex flex-col items-center ">
+      <h1 className="p-2 font-bold mb-12 text-white bg-black rounded-3xl">
+        BIENVENIDO ¡HOLA!
+      </h1>
+      {user?.photoURL ? (
+        <img
+          src={user.photoURL}
+          alt="User Photo"
+          className=" rounded-full w-24 h-24 animate-bounce"
+        />
+      ) : (
+        <div className="flex flex-col justify-center items-center">
+          <DefaultImage />
+          <span className="text-center text-gray-500">
+            No hay foto de usuario disponible
+          </span>
+        </div>
+      )}
+      <h1 className="uppercase text-white font-bold text-2xl">
+        {user?.displayName || user?.email}
+      </h1>
+      <div className="flex flex-wrap justify-around gap-6 mb-3 mt-3">
+        {tasks.length > 0 ? (
+          tasks.map((task) => (
+            <TaskCard
+              key={task.id}
+              title={task.title}
+              description={task.description}
+              handleDelete={() => handleDelete(task)}
+            />
+          ))
         ) : (
-          <div className="flex flex-col justify-center items-center">
-            <DefaultImage/>
-            <span className="text-center text-gray-500">
-              No hay foto de usuario disponible
-            </span>
-          </div>
+          <span className="text-4xl text-center text-slate-600">
+            No tienes tareas pendientes
+          </span>
         )}
-        <h1 className="uppercase text-white font-bold text-2xl">
-          {user?.displayName || user?.email}
-        </h1>
-        <div className="flex flex-wrap justify-around gap-6 mb-3 mt-3">
-          {tasks.length > 0 ? (
-            tasks.map((task) => (
-              <TaskCard
-                key={task.id}
-                title={task.title}
-                description={task.description}
-                handleDelete={() => handleDelete(task)}
-              />
-            ))
-          ) : (
-            <span className="text-4xl text-center text-slate-600">
-              No tienes tareas pendientes
-            </span>
-          )}
-        </div>
-        <div className="flex flex-wrap gap-6 items-center justify-center mt-2">
-          <Link to={"/addTask"}>
-            <NewTaskBtn content="Nueva tarea" />
-          </Link>
-          <LogOutBtn handleLogOut={handleLogOut} />
-        </div>
       </div>
-    </main>
+      <div className="flex flex-wrap gap-6 items-center justify-center mt-2">
+        <Link to={"/addTask"}>
+          <NewTaskBtn content="Nueva tarea" />
+        </Link>
+        <LogOutBtn handleLogOut={handleLogOut} />
+      </div>
+    </div>
   );
 };

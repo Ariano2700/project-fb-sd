@@ -13,6 +13,7 @@ import {
   User,
   signOut,
   signInWithPopup,
+  FacebookAuthProvider,
 } from "firebase/auth";
 import { auth as authFirebase } from "../../firebase/auth";
 
@@ -51,6 +52,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(authFirebase, googleProvider);
   };
+  const loginWhitFacebook = () =>{
+    const facebookProvider = new FacebookAuthProvider()
+    signInWithPopup(authFirebase,facebookProvider)
+  }
   const logOut: LogOutFunction = () => {
     signOut(authFirebase);
   };
@@ -64,7 +69,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
   return (
     <authContext.Provider
-      value={{ singUp, login, user, logOut, loading, loginWhitGoogle }}
+      value={{ singUp, login, user, logOut, loading, loginWhitGoogle, loginWhitFacebook }}
     >
       {children}
     </authContext.Provider>

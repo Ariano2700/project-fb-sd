@@ -13,6 +13,7 @@ import {
   handleSubmitType,
 } from "../../Types/FormTypes";
 import { ErrorAlert } from "../../components/alerts/ErrorAlert";
+// import { FacebookBtn } from "../../components/buttons/facebookBtn/FacebookBtn";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -63,54 +64,62 @@ export const Login = () => {
       console.error(error);
     }
   };
+  // const handleFacebookSingIn =  async() =>{
+  //   try {
+  //     await loginWhitFacebook()
+  //     navigate("/");
+  //   } catch (error:any) {
+  //     console.error(error)      
+  //   }
+  // }
   return (
     <>
-      <section className="bg-gray-600 min-h-screen">
-        <div className="flex items-center justify-center h-screen">
-          <OutSideWrapper>
-            {showErrorDialog && ErrorAlert({ error })}
-            <form
-              className="flex flex-col items-center gap-6 p-3 w-full"
-              onSubmit={handleSubmit}
-            >
-              <h1 className="text-white font-semibold text-lg md:text-2xl">
-                Iniciar sesión
-              </h1>
-              <InputForm
-                placeholder="Email"
-                type="email"
-                name="email"
-                icon={<SolarUserOutline />}
-                onChange={handleChange}
-              />
-              <InputForm
-                placeholder="Password"
-                type="password"
-                name="password"
-                icon={<SolarLockOutline />}
-                onChange={handleChange}
-              />
-              <div className="text-white text-sm text-right">
-                <Link
-                  to={"/register"}
-                  className="flex cursor-pointer underline"
-                >
-                  ¿Aun no estas registrado? Registrate
-                </Link>
-              </div>
-              <div className="flex justify-center items-center gap-4">
-                <button
-                  className="bg-green-600 px-7 py-2 text-white rounded-md hover:bg-green-800 transition-all duration-300"
-                  type="submit"
-                >
-                  Ingresar
-                </button>
-              </div>
-            </form>
+      <div className="flex items-center justify-center">
+        <OutSideWrapper>
+          {showErrorDialog && ErrorAlert({ error })}
+          <form
+            className="flex flex-col items-center gap-6 p-3 w-full"
+            onSubmit={handleSubmit}
+          >
+            <h1 className="text-[#323232] font-semibold text-lg md:text-3xl">
+              Iniciar sesión
+            </h1>
+            <InputForm
+              placeholder="Email"
+              type="email"
+              name="email"
+              icon={<SolarUserOutline />}
+              onChange={handleChange}
+              styleProp="inputLoginRegister"
+            />
+            <InputForm
+              placeholder="Password"
+              type="password"
+              name="password"
+              icon={<SolarLockOutline />}
+              onChange={handleChange}
+              styleProp="inputLoginRegister"
+            />
+            <div className="text-white text-sm text-right">
+              <Link to={"/register"} className="flex cursor-pointer underline text-[#323232]">
+                ¿Aun no estas registrado? Registrate
+              </Link>
+            </div>
+            <div className="flex justify-center items-center gap-4">
+              <button
+                className="formBtn"
+                type="submit"
+              >
+                Ingresar →
+              </button>
+            </div>
+          </form>
+          <div className="flex flex-col gap-5 mt-2">
             <GoogleBtn onClick={handleGoogleSingIn} />
-          </OutSideWrapper>
-        </div>
-      </section>
+            {/* <FacebookBtn onClick={handleFacebookSingIn} /> */}
+          </div>
+        </OutSideWrapper>
+      </div>
     </>
   );
 };

@@ -50,8 +50,7 @@ export const Register = () => {
   };
   return (
     <>
-      <section className="bg-gray-600 min-h-screen">
-        <div className="flex items-center justify-center h-screen">
+        <div className="flex items-center justify-center">
           <OutSideWrapper>
             {showErrorDialog && ErrorAlert({ error })}
 
@@ -59,7 +58,7 @@ export const Register = () => {
               className="flex flex-col items-center gap-6 p-3 w-full"
               onSubmit={handleSubmit}
             >
-              <h1 className="text-white font-semibold text-lg md:text-2xl">
+              <h1 className=" font-semibold text-lg md:text-3xl text-[#323232]">
                 Registrarse
               </h1>
               <InputForm
@@ -68,6 +67,7 @@ export const Register = () => {
                 name="email"
                 icon={<SolarUserOutline />}
                 onChange={handleChange}
+                styleProp="inputLoginRegister"
               />
               <InputForm
                 placeholder="Password"
@@ -75,15 +75,16 @@ export const Register = () => {
                 name="password"
                 icon={<SolarLockOutline />}
                 onChange={handleChange}
+                styleProp="inputLoginRegister"
               />
               <div className="text-white text-sm text-right">
-                <Link to={"/"} className="flex cursor-pointer underline">
+                <Link to={"/"} className="flex cursor-pointer underline text-[#323232]">
                   ¿Ya tienes cuenta? Inicia sesión
                 </Link>
               </div>
               <div className="flex justify-center items-center gap-4">
                 <button
-                  className="bg-green-600 px-7 py-2 text-white rounded-md hover:bg-green-800 transition-all duration-300"
+                  className="formBtn"
                   type="submit"
                 >
                   Registrar
@@ -92,7 +93,6 @@ export const Register = () => {
             </form>
           </OutSideWrapper>
         </div>
-      </section>
     </>
   );
 };

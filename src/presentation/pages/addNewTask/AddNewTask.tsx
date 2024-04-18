@@ -46,8 +46,7 @@ export const AddNewTask = () => {
   if (loading) return <Loader />;
   return (
     <>
-      <main className="bg-black h-screen flex justify-center items-center">
-        <div className="bg-gray-600 p-5 rounded-md">
+        <div className="bg-gray-500 p-5 rounded-md">
           <form className="flex flex-col items-center gap-6 p-3 w-full" onSubmit={handleSubmit}>
             <Link to={"/home"}>
               <div className="flex items-center gap-1 cursor-pointer text-white text-xl w-full">
@@ -64,6 +63,7 @@ export const AddNewTask = () => {
                 type="text"
                 icon={<TitleIcon />}
                 onChange={handleChange}
+                styleProp="h-10 rounded input input-bordered border-white w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10"
               />
               <InputForm
                 name="description"
@@ -71,6 +71,7 @@ export const AddNewTask = () => {
                 type="text"
                 icon={<DescriptionIcon />}
                 onChange={handleChange}
+                styleProp="h-10 rounded input input-bordered border-white w-full bg-slate-100 placeholder:text-primary text-p600 p-2 pr-10"
               />
             </div>
             <div className="flex justify-center items-center gap-4">
@@ -78,7 +79,6 @@ export const AddNewTask = () => {
             </div>
           </form>
         </div>
-      </main>
     </>
   );
 };
