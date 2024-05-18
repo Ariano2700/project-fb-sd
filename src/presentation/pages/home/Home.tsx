@@ -11,6 +11,7 @@ import { useDeleteTask } from "../../../hooks/useDeleteTask";
 import { ConfirmAlert } from "../../components/alerts/ConfirmAlert";
 import Swal from "sweetalert2";
 import DefaultImage from "../../components/DefaultImage";
+import { AnimatePresence, Variant, Variants, motion } from "framer-motion";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -52,46 +53,63 @@ export const Home = () => {
   const handleLogOut = async () => {
     await logOut();
   };
-
   if (loading) return <Loader />;
 
   return (
     <div className=" bg-gray-800 rounded-lg shadow-lg overflow-hidden p-10 h-full w-full flex flex-col items-center ">
-      <h1 className="p-2 font-bold mb-12 text-white bg-black rounded-3xl">
-        BIENVENIDO ¡HOLA!
-      </h1>
-      {user?.photoURL ? (
-        <img
-          src={user.photoURL}
-          alt="User Photo"
-          className=" rounded-full w-24 h-24 animate-bounce"
-        />
-      ) : (
-        <div className="flex flex-col justify-center items-center">
-          <DefaultImage />
-          <span className="text-center text-gray-500">
-            No hay foto de usuario disponible
-          </span>
-        </div>
-      )}
-      <h1 className="uppercase text-white font-bold text-2xl">
-        {user?.displayName || user?.email}
-      </h1>
-      <div className="flex flex-wrap justify-around gap-6 mb-3 mt-3">
-        {tasks.length > 0 ? (
-          tasks.map((task) => (
-            <TaskCard
-              key={task.id}
-              title={task.title}
-              description={task.description}
-              handleDelete={() => handleDelete(task)}
-            />
-          ))
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+          delay: 0.2,
+          type: "spring",
+        }}
+        className="flex flex-col justify-center items-center"
+      >
+      {/* <div className="flex flex-col justify-center items-center"> */}
+        <h1 className="p-2 font-bold mb-12 text-white bg-black rounded-3xl">
+          BIENVENIDO ¡HOLA!
+        </h1>
+        {user?.photoURL ? (
+          <img
+            src={user.photoURL}
+            alt="User Photo"
+            className=" rounded-full w-24 h-24 animate-bounce"
+          />
         ) : (
-          <span className="text-4xl text-center text-slate-600">
-            No tienes tareas pendientes
-          </span>
+          <div className="flex flex-col justify-center items-center">
+            <DefaultImage />
+            <span className="text-center text-gray-500">
+              No hay foto de usuario disponible
+            </span>
+          </div>
         )}
+        <h1 className="uppercase text-white font-bold text-2xl">
+          {user?.displayName || user?.email}
+        </h1>
+        </motion.div>
+      {/* </div> */}
+      <div className="flex flex-wrap justify-around gap-6 mb-3 mt-3">
+        {/* <AnimatePresence> */}
+          {tasks.length > 0 ? (
+            tasks.map((task, index) => (
+              <TaskCard
+                key={task.id}
+                id={task.id?.toString()}
+                title={task.title}
+                description={task.description}
+                handleDelete={() => handleDelete(task)}
+                index={index}
+              />
+            ))
+          ) : (
+            <span className="text-4xl text-center text-slate-600">
+              No tienes tareas pendientes
+            </span>
+          )}
+        {/* </AnimatePresence> */}
       </div>
       <div className="flex flex-wrap gap-6 items-center justify-center mt-2">
         <Link to={"/addTask"}>
